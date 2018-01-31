@@ -32,6 +32,7 @@ class TableList extends Component {
   }
   render() {
     let dataExists = this.props.data.product.products && this.props.data.product.products.length > 0;
+    let dataNotExist = this.props.data.product === "error";
     let products;
     if (dataExists) products = this.props.data.product.products;
     const styles = {
@@ -72,9 +73,12 @@ class TableList extends Component {
                 </TableRow>
               ))}
             </TableBody>
-          </Table> :
+          </Table> : !dataNotExist ?
           <Grid><Row center="xs"><Col>
-          <CircularProgress style={{marginTop:"100px"}} size={150} thickness={5} />
+            <CircularProgress style={{marginTop:"100px"}} size={150} thickness={5} />
+          </Col></Row></Grid> :
+          <Grid><Row center="xs"><Col>
+            <h1>Category Not Found</h1>
           </Col></Row></Grid>
         }
       </div>

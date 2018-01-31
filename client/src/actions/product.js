@@ -27,7 +27,12 @@ export function load() {
 		return fetch('http://localhost:3001/products?'+searchQuery)
 		.then(async (response) => {
 			let res = await response.json();
-			dispatch(receivedData(res));
+			if (response.status === 200) {
+				dispatch(receivedData(res));
+			}
+			else {
+				dispatch(receivedDataFailed());
+			}
 		}, (error) => {
 			throw(error);
 		});
@@ -42,4 +47,8 @@ export function clearData() {
 
 export function receivedData(data) {
   return {type: types.LOAD_DATA_SUCCESS , data};
+}
+
+export function receivedDataFailed(data) {
+	return {type: types.LOAD_DATA_FAILED, error: "error"}
 }

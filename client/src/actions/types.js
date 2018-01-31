@@ -1,3 +1,4 @@
 export const LOAD_DATA_SUCCESS = 'LOAD_DATA_SUCCESS';
-export const CLEAR_DATA = 'CLEAR_DATA';
+export const LOAD_DATA_FAILED = 'LOAD_DATA_FAILED';
 export const SET_SEARCH = 'SET_SEARCH';
+export const CLEAR_DATA = 'CLEAR_DATA';

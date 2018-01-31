@@ -4,6 +4,8 @@ export function product(state = [], action) {
   switch(action.type) {
     case types.LOAD_DATA_SUCCESS:
       return action.data
+    case types.LOAD_DATA_FAILED:
+      return action.error;
     case types.CLEAR_DATA:
       return []
     default:
